@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleDTS</title>
+    <style>
+        table{
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 5px;
+        }
+        tr:nth-child(even) {
+            background-color: lightgrey;
+        }
+    </style>
+</head>
+<body>
+    <div id="title" style="display:flex">
+        <h1>Simple Defect Tracking System</h1>
+    </div>
+    <div id="list" style="width: 1500px">       
+        <table id="defectList">
+            <caption style="font-weight: bolder; font-size: large;">Current bug list</caption>
+            <colgroup id="bugInfo">
+                <col width="150">
+                <col width="150">
+                <col width="150">
+                <col width="500">
+                <col width="150">
+                <col width="100">
+                <col width="200">
+                <col width="100">               
+            </colgroup> 
+        <thead>
+            <tr>
+                <th>Bug ID</th>
+                <th>Project</th>
+                <th>Bug Type</th>
+                <th>Description</th>
+                <th>Operating System</th>
+                <th>Priority</th>
+                <th>Asignee</th>
+                <th>Status</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <td colspan="8"></td>
+        </tfoot>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
