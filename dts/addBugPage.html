@@ -15,7 +15,7 @@
                 document.getElementById('Project').placeholder = "MISSING"
             }
         }
-        
+
     </script>
     <div id="title" style="display:flex">
         <h1>Simple Defect Tracking System</h1>
@@ -26,41 +26,42 @@
                 <div id="ProjectBlock" style="margin: 10px;">
                     <label for="Project">Project</label>
                     <br>
-                    <input type="text" id="Project" placeholder="Project Name">
+                    <input type="text" id="Project" placeholder="Project Name" name="Project">
                 </div>
                 <div id="BugtypeBlock" style="margin: 10px;">
                     <label for="Bugtype">Bug type</label>
                     <br>
-                    <input type="text" id="Bugtype" placeholder="Type of bug">
+                    <input type="text" id="Bugtype" placeholder="Type of bug" name="BugType">
                 </div>
                 <div id="PriorityBlock" style="margin: 10px;">
                     <label for="Priority">Priority</label>
                     <br>
-                    <input type="text" id="Priority" placeholder="Priority level">
+                    <input type="text" id="Priority" placeholder="Priority level" name="Priority">
                 </div>
             </div>
             <div id="DescriptionBlock" style="margin: 10px;">
                 <label for="Description">Description</label>
                 <br>
-                <input type="text" id="Description" placeholder="Describe the bug" style="width:480px;">
+                <input type="text" id="Description" placeholder="Describe the bug" style="width:480px;" name="Description">
             </div>
             <div style="display:flex">
                 <div id="OperatingSysBlock" style="margin: 10px;">
                     <label for="OperatingSys">Operating System</label>
                     <br>
-                    <input type="text" id="OperatingSys" placeholder="Operating system">
+                    <input type="text" id="OperatingSys" placeholder="Operating system" name="OperatingSys">
                 </div>
                 <div id="AssigneeBlock" style="margin: 10px;">
                     <label for="Assignee">Assigned to</label>
                     <br>
-                    <input type="text" id="Assignee" placeholder="Assignee">
+                    <input type="text" id="Assignee" placeholder="Assignee" name="Assignee">
                 </div>
                 <div id="StatusBlock" style="margin: 10px;">
                     <label for="Status">Status</label>
                     <br>
-                    <input type="text" id="Status" placeholder="Status">
+                    <input type="text" id="Status" placeholder="Status" name="Status">
                 </div>
-            </div>            
+            </div>
+            <button style="margin: 10px;">Submit</button>            
         </form>
     </div>
 </body>
