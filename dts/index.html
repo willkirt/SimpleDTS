@@ -54,6 +54,52 @@
             <td colspan="8"></td>
         </tfoot>
         <tbody>
+            <script>
+                fetch('/getDefectList').then(function(defects){
+                    defects.json().then(function(defectList){
+                        var defectTable = document.getElementById('defectList');
+                        for (let defect of defectList.index){
+                            var currentDefect = defectTable.insertRow();
+                            var defectID = currentDefect.insertCell(0);
+                            var projectName = currentDefect.insertCell(1);
+                            var bugType = currentDefect.insertCell(2);
+                            var defectDesc = currentDefect.insertCell(3);
+                            var operatingSys = currentDefect.insertCell(4);
+                            var priority = currentDefect.insertCell(5);
+                            var asignee = currentDefect.insertCell(6);
+                            var status = currentDefect.insertCell(7);
+                            var updateDefect = currentDefect.insertCell(8);
+                            var updateButton = document.createElement('button');
+                            var deleteDefect = currentDefect.insertCell(9);
+                            var deleteButton = document.createElement('button');
+
+                            defectID.innerHTML = defect._id;
+                            projectName.innerHTML = defect.Project;
+                            bugType.innerHTML = defect.BugType;
+                            defectDesc.innerHTML = defect.Description;
+                            operatingSys.innerHTML = defect.OperatingSys;
+                            priority.innerHTML = defect.Priority;
+                            asignee.innerHTML = defect.Assignee;
+                            status.innerHTML = defect.Status;
+                            updateButton.innerHTML = "Update";
+                            deleteButton.innerHTML = "Delete";
+                            deleteButton.addEventListener('click', function(){
+                                fetch('/deleteBug', {
+                                    method:'POST',
+                                    headers:{
+                                        "content-Type":"application/json"
+                                    },
+                                    body:JSON.stringify({
+                                        index:defect._id
+                                    })
+                                });
+                            });
+                            updateDefect.appendChild(updateButton);
+                            deleteDefect.appendChild(deleteButton);
+                        }
+                    })
+                })
+            </script>
         </tbody>
     </table>
 </div>

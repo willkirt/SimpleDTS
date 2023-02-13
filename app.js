@@ -41,9 +41,21 @@ app.post('/addBug', function(req,res){
         Status:req.body.Status
     }
     new defect(req.body).save().then(function(){
-        //console.log(addBug)
+        console.log(addBug)
         res.redirect('./index.html');
     })
+})
+
+app.get('/getDefectList', function(req, res){
+    defect.find({}).then(function(index){
+        res.json({index});
+    })
+})
+
+app.post('/deleteBug', function(req, res){
+    console.log(`Defect deleted ${req.body.index}`)
+    defect.findByIdAndDelete(req.body.index).exec()
+    res.redirect('./index.html');
 })
 
 app.listen(port, function(){
