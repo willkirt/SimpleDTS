@@ -21,7 +21,8 @@
         <h1>Simple Defect Tracking System</h1>
     </div>
     <div id="newBugForm">
-        <form action="/addBug" method="post" onsubmit="return checkForm()">
+        <form action="/updateDefect" method="post" onsubmit="return checkForm()">
+            <input type="text" id="ID" placeholder="ID" name="ID" style="visibility: hidden;">
             <div style="display:flex">
                 <div id="ProjectBlock" style="margin: 10px;">
                     <label for="Project">Project</label>
@@ -67,9 +68,14 @@
             var queryData = window.location.search;
             console.log(queryData);
             var entries = new URLSearchParams(queryData);
-            if(queryData != null){
-                document.getElementById("Project").value = entries.get("Project");
-            }
+            document.getElementById("ID").value = entries.get("id")
+            document.getElementById("Project").value = entries.get("Project");
+            document.getElementById("Bugtype").value = entries.get("BugType");
+            document.getElementById("Priority").value = entries.get("Priority");
+            document.getElementById("Description").value = entries.get("Description");
+            document.getElementById("OperatingSys").value = entries.get("OperatingSys");
+            document.getElementById("Assignee").value = entries.get("Assignee");
+            document.getElementById("Status").value = entries.get("Status");
         </script>
     </div>
 </body>

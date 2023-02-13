@@ -82,6 +82,12 @@
                             asignee.innerHTML = defect.Assignee;
                             status.innerHTML = defect.Status;
                             updateButton.innerHTML = "Update";
+                            updateButton.addEventListener('click', function(){
+                                window.location.replace("/getID:" + defect._id + "&Project=" + defect.Project
+                                + "&BugType=" + defect.BugType + "&Description=" + defect.Description 
+                                + "&Priority=" + defect.Priority + "&OperatingSys=" + defect.OperatingSys
+                                + "&Assignee=" + defect.Assignee + "&Status=" + defect.Status);
+                            })
                             deleteButton.innerHTML = "Delete";
                             deleteButton.addEventListener('click', function(){
                                 fetch('/deleteBug', {

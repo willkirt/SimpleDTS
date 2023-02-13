@@ -41,7 +41,7 @@ app.post('/addBug', function(req,res){
         Status:req.body.Status
     }
     new defect(req.body).save().then(function(){
-        console.log(addBug)
+        //console.log(addBug)
         res.redirect('./index.html');
     })
 })
@@ -53,9 +53,24 @@ app.get('/getDefectList', function(req, res){
 })
 
 app.post('/deleteBug', function(req, res){
-    console.log(`Defect deleted ${req.body.index}`)
+    //console.log(`Defect deleted ${req.body.index}`)
     defect.findByIdAndDelete(req.body.index).exec()
     res.redirect('./index.html');
+})
+
+//update route
+app.get("/getID::id", function(req, res){
+    //console.log(req.params.id);
+    res.redirect(`updateBugPage.html?id=${req.params.id}`);
+})
+
+app.post('/updateDefect', function(req, res){
+    //console.log(req.body.ID);
+    defect.findByIdAndUpdate(req.body.ID, {Project:req.body.Project, BugType:req.body.BugType,
+    Description:req.body.Description, OperatingSys:req.body.OperatingSys, Priority:req.body.Priority,
+    Assignee:req.body.Assignee, Status:req.body.Status}, function(){
+        res.redirect('./index.html');
+    })
 })
 
 app.listen(port, function(){
