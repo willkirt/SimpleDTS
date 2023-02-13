@@ -26,10 +26,6 @@ app.get('/', function(req, res){
     res.redirect('./index.html');
 });
 
-app.get('/addNewBug', function(req, res){
-    //console.log('Request to add bug.');
-    res.redirect('./addBugPage.html');
-})
 app.listen(port, function(){
     console.log(`Running on port ${port}.`);
 })
